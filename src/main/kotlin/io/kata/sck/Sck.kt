@@ -12,8 +12,7 @@ class Sck {
 
     string.startsWith("//") -> addBy(of(string.substring(2, 3))
       .map { string.substring(4, string.length).split(it) }
-      .get().stream()
-    )
+      .get().stream())
 
     string.contains(",") -> addBy(string.split(",").stream()
       .flatMap { it.split("\n").stream() })
