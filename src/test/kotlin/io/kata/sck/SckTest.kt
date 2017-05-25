@@ -21,4 +21,10 @@ class SckTest {
     val computed = sck?.compute("2")
     assertEquals(2, computed)
   }
+
+  @Test
+  fun oneAndTwoCommaThenThree() {
+    val computed = sck?.compute("1,2")
+    assertEquals(3, computed)
+  }
 }
