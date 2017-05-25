@@ -30,7 +30,7 @@ class SckTest {
 
   @Test
   fun anyNumberCommaAndNewLineThenSum() {
-    val computed = sck?.add("1\n2,3")
-    assertEquals(6, computed)
+    val computed = sck?.add("1\n2,3,1\n2")
+    assertEquals(9, computed)
   }
 }
