@@ -12,19 +12,25 @@ class SckTest {
 
   @Test
   fun emptyStringThenZero() {
-    val computed = sck?.compute("")
+    val computed = sck?.add("")
     assertEquals(0, computed)
   }
 
   @Test
   fun anyNumberStringThenIntegerNumber() {
-    val computed = sck?.compute("2")
+    val computed = sck?.add("2")
     assertEquals(2, computed)
   }
 
   @Test
-  fun oneAndTwoCommaThenThree() {
-    val computed = sck?.compute("1,2")
-    assertEquals(3, computed)
+  fun anyNumberCommaThenSum() {
+    val computed = sck?.add("3,4")
+    assertEquals(7, computed)
+  }
+
+  @Test
+  fun anyNumberCommaAndNewLineThenSum() {
+    val computed = sck?.add("1\n2,3")
+    assertEquals(6, computed)
   }
 }
