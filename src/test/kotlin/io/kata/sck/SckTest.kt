@@ -11,8 +11,14 @@ class SckTest {
   fun before() { sck = Sck() }
 
   @Test
-  fun emptyStringToZero() {
+  fun emptyStringThenZero() {
     val computed = sck?.compute("")
     assertEquals(0, computed)
+  }
+
+  @Test
+  fun oneStringThenOne() {
+    val computed = sck?.compute("1")
+    assertEquals(1, computed)
   }
 }
