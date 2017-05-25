@@ -33,4 +33,10 @@ class SckTest {
     val computed = sck?.add("1\n2,3,1\n2")
     assertEquals(9, computed)
   }
+
+  @Test
+  fun anyNumberCustomDelimiterThenSum() {
+    val computed = sck?.add("//;\n1;2")
+    assertEquals(3, computed)
+  }
 }
