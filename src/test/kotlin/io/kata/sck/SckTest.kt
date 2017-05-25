@@ -44,4 +44,10 @@ class SckTest {
   fun negativeNumbersThenException() {
     sck?.add("1,4,-1")
   }
+
+  @Test
+  fun ignoreBiggerNumbersThan1000() {
+    val computed = sck?.add("1,4,1000")
+    assertEquals(5, computed)
+  }
 }

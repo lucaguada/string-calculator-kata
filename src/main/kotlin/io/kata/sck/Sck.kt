@@ -27,6 +27,7 @@ class Sck {
       it < 0 -> throw RuntimeException("Negatives numbers not allowed: $it")
       else -> it
     } }
+    .filter { it < 1000 }
     .reduce { v1, v2 -> v1 + v2 }
     .get()
 }
