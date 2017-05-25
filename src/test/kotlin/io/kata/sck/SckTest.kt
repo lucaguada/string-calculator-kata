@@ -39,4 +39,9 @@ class SckTest {
     val computed = sck?.add("//;\n1;2")
     assertEquals(3, computed)
   }
+
+  @Test(expected = RuntimeException::class)
+  fun negativeNumbersThenException() {
+    sck?.add("1,4,-1")
+  }
 }
