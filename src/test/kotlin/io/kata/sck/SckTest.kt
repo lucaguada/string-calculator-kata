@@ -17,8 +17,8 @@ class SckTest {
   }
 
   @Test
-  fun oneStringThenOne() {
-    val computed = sck?.compute("1")
-    assertEquals(1, computed)
+  fun anyNumberStringThenIntegerNumber() {
+    val computed = sck?.compute("2")
+    assertEquals(2, computed)
   }
 }
