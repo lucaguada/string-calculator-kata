@@ -8,13 +8,11 @@ class Sck {
   fun add(string: String): Int = when {
     string.isBlank() -> 0
 
-    string.length == 1 -> parseInt(string)
-
     string.startsWith("//") -> addBy(of(string.substring(2, 3))
       .map { string.substring(4, string.length).split(it) }
       .get().stream())
 
-    string.contains(",") -> addBy(string.split(",").stream()
+    string.length == 1 || string.contains(",") -> addBy(string.split(",").stream()
       .flatMap { it.split("\n").stream() })
 
     else -> throw RuntimeException()
@@ -27,6 +25,5 @@ class Sck {
       else -> it
     } }
     .filter { it < 1000 }
-    .reduce { v1, v2 -> v1 + v2 }
-    .get()
+    .reduce(0) { v1, v2 -> v1 + v2 }
 }
