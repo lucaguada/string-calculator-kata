@@ -16,10 +16,12 @@ class SckTest {
     assertEquals(0, computed)
   }
 
-  @Test
+  @Test(expected = RuntimeException::class)
   fun anyNumberStringThenIntegerNumber() {
-    val computed = sck?.add("2")
-    assertEquals(2, computed)
+    val positive = sck?.add("2")
+    assertEquals(2, positive)
+
+    sck?.add("-2")
   }
 
   @Test
