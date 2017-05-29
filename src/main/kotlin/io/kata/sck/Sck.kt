@@ -8,10 +8,13 @@ class Sck {
   fun add(string: String): Int = when {
     string.isBlank() -> 0
 
-    string.startsWith("//") ->
-      addBy(of(string.substring(2, 3))
-        .map { string.substring(4, string.length).split(it) }
-        .get().stream())
+    string.startsWith("//") -> {
+      val i = string.indexOf('\n')
+      addBy(string.substring(2, i)
+        .replace("[", "").replace("]", "")
+        .let { string.substring(i + 1, string.length).split(it) }
+        .stream())
+    }
 
     string.length == 1 || string.contains(",") ->
       addBy(string.split(",").stream()

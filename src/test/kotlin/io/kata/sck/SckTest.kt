@@ -50,4 +50,10 @@ class SckTest {
     val computed = sck?.add("1,4,1000")
     assertEquals(5, computed)
   }
+
+  @Test
+  fun anyDelimiterLimit() {
+    val computed = sck?.add("//[***]\n2***2***2")
+    assertEquals(6, computed)
+  }
 }
